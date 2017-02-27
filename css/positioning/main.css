@@ -1,0 +1,18 @@
+#octopus {
+  display: block; 
+  margin: 15vh auto 0 auto;
+}
+
+#glasses {
+  position: absolute;
+  top: 27.7vh;
+  left: 50%;
+  transform: translateX(-47%);
+}
+
+#hat {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-45%);
+  top: 7vh;
+}
