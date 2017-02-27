@@ -1,0 +1,20 @@
+#octopus {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 15vh;
+}
+
+#glasses {
+  position: absolute;
+  top: 27.7vh;
+  left: 50%;
+  transform: translateX(-47%);
+}
+
+#hat {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-45%);
+  top: 7vh;
+}
