@@ -1,8 +1,6 @@
 #octopus {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  top: 15vh;
+  display: block; 
+  margin: 15vh auto 0 auto;
 }
 
 #glasses {
