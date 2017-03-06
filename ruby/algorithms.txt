@@ -1,0 +1,19 @@
+- Approach elevator door until 2 feet distant (robot-arm's length distance)
+- Press "Up" button to call elevator
+- Start "doors open?" at false
+- Wait until "doors open?" = true
+- Start "occupants" counter at # of occupants in elevator
+- If "occupants" counter > 0, step aside and let occupants exit:
+    + decrement "occupants" counter by 1 for each occupant that leaves
+- Enter the elevator
+- Start "desired floor" at floor desired
+- Start "button checked" at value of bottom-most, left-most button
+- Start "direction of button check" to rightward
+- Start "button present in direction of button check?" at yes
+- Until "button checked" = "desired floor"
+    + If no button is present set "button present?" to no
+    + If "button present?" = no, move up one row and change "direction of button check"
+    + Move over by one button in "direction of button check"
+- Press "button checked"
+- Wait until "doors open?" = true
+- Walk out the elevator
