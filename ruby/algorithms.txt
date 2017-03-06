@@ -1,4 +1,10 @@
-- Approach elevator door until 2 feet distant (robot-arm's length distance)
+
+Robot Elevator Instructions
+
+- Start "distance to door" at # feet distant from elevator door
+- Until "distance to door" <= 2 (arm's length)
+    + Take one step towards door
+- Stop moving
 - Press "Up" button to call elevator
 - Start "doors open?" at false
 - Wait until "doors open?" = true
@@ -17,3 +23,37 @@
 - Press "button checked"
 - Wait until "doors open?" = true
 - Walk out the elevator
+
+Instructions to Back Out the Driveway
+
+- Start "car door" at unknown
+- Until "car door" = driver door
+    + If there is a steering wheel in front of seat, set "car door" to driver door
+    + Move to next door
+- Open car door, take a seat
+- Put keys into ignition
+- Start "engine running?" at false
+- Until "engine running?" = true
+    + Push in keys and rotate clockwise
+- Engage brake, start "brake engaged?" at true
+- Start "gear" at park
+- Start "emergency brake engaged?" at true
+- Until "emergency brake engaged?" = false
+    + If emergency brake is engaged
+        * Disengage emergency brake
+        * Set "emergency brake engaged?" = false
+    + Else set "emergency brake engaged" = false
+- Until "gear" = reverse
+    + Shift gear by one
+- Start "coast clear?" at false
+- Until "coast clear?" = true
+    + Look over shoulder at street, and check if there are cars coming
+    + If cars are not coming, set "coast clear?" to true
+- Start "car oriented parallel to street?" at false
+- Start "car in street?" at false
+- Until "car oriented parallel to street?" = true AND "car in street?"" = true
+    + Disengage brake, set "brake engaged?" to false
+    + Rotate steering wheel by 90deg
+- Engage brake, set "brake engaged" to true
+
+Finished!
