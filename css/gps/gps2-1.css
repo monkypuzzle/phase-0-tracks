@@ -1,3 +1,27 @@
 body {
-/*  background-color: red;
-*/}
+  font-family: 'Comic Sans MS';
+  background-image: url(https://assets-cdn.github.com/images/modules/logos_page/Octocat.png);
+  background-repeat: no-repeat;
+  background-position: right top;
+  background-size: 80px 60px;
+}
+
+section.column-1 {
+  display: inline-block;
+  background-color: red;
+  width: 40%;
+  vertical-align: top;
+  margin: 10px;
+  padding: 10px;
+  border: 2px solid;  
+ }
+ 
+section.column-2 {
+  display: inline-block;
+  width: 40%;
+  background-color: blue;
+  vertical-align: top;
+  margin: 10px;
+  padding: 10px;
+  border: 2px solid;
+  }
