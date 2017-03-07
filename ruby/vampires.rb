@@ -1,3 +1,9 @@
+puts 'How many employees would you like to process?'
+
+noEmployees = gets.chomp.to_i
+
+for i in 1..noEmployees
+
 # Name
 puts 'What is your name?'
 userName = gets.chomp
@@ -49,4 +55,12 @@ elsif ( userName == 'Drake Cula' || userName == 'Tu Fang' )
   puts 'Definitely a vampire.'
 else
   puts 'Results inconclusive.'
+end
+
+if i == noEmployees
+  puts 'All done!'
+else
+  puts 'Okay, next employee!'
+end
+
 end
