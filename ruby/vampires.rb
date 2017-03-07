@@ -43,11 +43,25 @@ elsif health == 'no'
   healthBoolean = false
 end
 
+# Allergies
+puts 'Can you tell us all of your allergies, one at a time?'
+allergies = []
+allergiesSunshine = false
+until allergies.last == 'done' || allergies.last == 'sunshine'
+  allergies.push gets.chomp
+  if allergies.last == 'sunshine'
+    allergiesSunshine = true
+    puts 'I see... Okay well, we\'ve got your evaluation.'
+  else
+    puts 'Okay. What else? Say \'done\' if that\'s it'
+  end
+end
+
 
 # Evaluation
 if ( ageBoolean  && garlicBreadBoolean && healthBoolean )
   puts 'Probably not a vampire.'
-elsif ( !ageBoolean && ( !garlicBreadBoolean || !healthBoolean) )
+elsif ( !ageBoolean && ( !garlicBreadBoolean || !healthBoolean) ) || allergiesSunshine
   puts 'Probably a vampire.'
 elsif ( !ageBoolean && !garlicBreadBoolean && !healthBoolean )
   puts 'Almost certainly a vampire.'
