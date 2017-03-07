@@ -72,7 +72,7 @@ else
 end
 
 if i == noEmployees
-  puts 'All done!'
+  puts 'Actually, never mind! What do these questions have to do with anything? Let\'s all be friends.'
 else
   puts 'Okay, next employee!'
 end
