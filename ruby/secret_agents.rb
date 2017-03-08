@@ -69,6 +69,21 @@ loop do
   end
 end
 
+puts 'What is your password?'
+
+password = gets.chomp
+
+result = nil
+
+if response == 'encryption'
+  result = encrypt(password)
+else
+  result = decrypt(password)
+end
+
+puts 'Your result is ' + result
+
+
 
 
 
