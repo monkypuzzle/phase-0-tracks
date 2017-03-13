@@ -30,10 +30,10 @@ has_children = gets.chomp
 has_children_literal = ''
 if has_children == 'y'
   client_details[:has_children] = true
-  has_children_literal = 'have no'
+  has_children_literal = 'do have'
 else
   client_details[:has_children] = false
-  has_children_literal = 'have'
+  has_children_literal = 'have no'
 end
 
 if client_details[:has_children] == true
@@ -56,24 +56,78 @@ client_details[:favorite_colors] = favorite_colors
 
 favorite_colors_literal = ''
 
-client_details[:favoritecolors].each |color| do
-  unless client_
-  favorite_colors_literal += color + ', and'
+client_details[:favorite_colors].each do |color|
+  if color.equal?(client_details[:favorite_colors].last)
+    favorite_colors_literal += ( 'and' + color )
+  else
+    favorite_colors_literal += ( color + ', ' )
+  end
 end
 
-puts favorite_colors_literal
-
-
 puts "Great! so here\'s what we have. Does this look okay?
-Your name is #{:name}.
-Your age is #{:age}.
+Your name is #{client_details[:name]}.
+Your age is #{client_details[:age]}.
 You #{has_children_literal} children.
-You have #{:number_of_children} children.
-You have #{:number_of_rooms} rooms.
-Your favorite colors are: #{favorite_colors_literal}."
-+ "\nIs that correct?"
+You have #{client_details[:number_of_children]} children.
+You have #{client_details[:number_of_rooms]} rooms.
+Your favorite colors are #{favorite_colors_literal}.
+Is that correct? Please answer \'y\' or \'n\'."
 
+user_confirmation = gets.chomp
 
+if user_confirmation == 'y'
+  puts 'Great!'
+else
+  puts "Which field would you like to change? Please answer \'name\', \'age\', \'children\', \'number of children\', \'number of rooms\', or \'favorite colors\'."
+end
+
+user_confirmation_key = gets.chomp
+
+puts 'Okay, what would you like to change it to?'
+
+if user_confirmation_key == "name"
+  client_details[:name] = gets.chomp
+elsif user_confirmation_key == "age"
+  client_details[:age] = gets.chomp.to_i
+elsif user_confirmation_key == "children"
+    has_children = gets.chomp
+    has_children_literal = ''
+    if has_children == 'y'
+      client_details[:has_children] = true
+      has_children_literal = 'do have'
+    else
+      client_details[:has_children] = false
+      has_children_literal = 'have no'
+    end
+elsif user_confirmation_key == "number of children"
+  client_details[:number_of_children] = gets.chomp.to_i
+elsif user_confirmation_key == "number of rooms"
+  client_details[:number_of_rooms] = gets.chomp.to_i
+elsif user_confirmation_key == "favorite colors"
+  favorite_colors = []
+  loop do
+    user_input = gets.chomp
+    break if user_input == ''
+    favorite_colors.push user_input
+  end
+  client_details[:favorite_colors] = favorite_colors
+  favorite_colors_literal = ''
+  client_details[:favorite_colors].each do |color|
+    if color.equal?(client_details[:favorite_colors].last)
+      favorite_colors_literal += ( 'and' + color )
+    else
+      favorite_colors_literal += ( color + ', ' )
+    end
+  end
+end
+
+puts "Great! Here are your revised details.
+Your name is #{client_details[:name]}.
+Your age is #{client_details[:age]}.
+You #{has_children_literal} children.
+You have #{client_details[:number_of_children]} children.
+You have #{client_details[:number_of_rooms]} rooms.
+Your favorite colors are #{favorite_colors_literal}."
 
 
 
