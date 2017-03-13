@@ -27,10 +27,13 @@ client_details[:age] = gets.chomp.to_i
 
 puts 'Do you have children? Please answer \'y\' or \'n\'.'
 has_children = gets.chomp
-if gets.chomp == 'y'
+has_children_literal = ''
+if has_children == 'y'
   client_details[:has_children] = true
+  has_children_literal = 'have no'
 else
   client_details[:has_children] = false
+  has_children_literal = 'have'
 end
 
 if client_details[:has_children] == true
@@ -45,12 +48,32 @@ puts 'What are your favorite colors? Press enter after each color, and when you\
 favorite_colors = []
 
 loop do
-  break if user_input = ''
   user_input = gets.chomp
-  favorite_colors.push = user_input
+  break if user_input == ''
+  favorite_colors.push user_input
 end
-
 client_details[:favorite_colors] = favorite_colors
 
-puts 'Great! So '
+favorite_colors_literal = ''
+
+client_details[:favoritecolors].each |color| do
+  unless client_
+  favorite_colors_literal += color + ', and'
+end
+
+puts favorite_colors_literal
+
+
+puts "Great! so here\'s what we have. Does this look okay?
+Your name is #{:name}.
+Your age is #{:age}.
+You #{has_children_literal} children.
+You have #{:number_of_children} children.
+You have #{:number_of_rooms} rooms.
+Your favorite colors are: #{favorite_colors_literal}."
++ "\nIs that correct?"
+
+
+
+
 
