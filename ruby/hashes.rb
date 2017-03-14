@@ -1,7 +1,3 @@
-# Pseudocode
-# Define hash
-# Define function "gets_user_inputs"
-
 
 
 def generate_hash ()
@@ -24,11 +20,11 @@ def generate_hash ()
     end
   puts "Which decor theme would you like? Our options are: Rustic Western, Island Paradise, and Victorian."
   $client_details[:decor_theme] = gets.chomp
-  "Great! Let\'s see here..."
+  puts "Great! Let\'s see here..."
 end
 
 def print_hash ()
-  puts 'Let me see if I got this right.'
+  puts "\nLet me see if I have this right."
   puts "Your name is #{$client_details[:name]}. \nYou are #{$client_details[:age]} years old."
   if $client_details[:has_children] == true
     puts "You have children."
@@ -39,13 +35,36 @@ def print_hash ()
 end
 
 def correct_details ()
-
+  puts "Which field would you like to change? Please answer 'name', 'age', 'children', or 'decor theme'."
+  user_response = gets.chomp
+  puts 'Okay, and what would you like to change it to?'
+  user_revision = gets.chomp
+  if user_response == 'name'
+    $client_details[:name] = user_revision
+  elsif user_response == 'age'
+    $client_details[:age] = user_revision
+  elsif user_response == 'children'
+    $client_details[:children] = user_revision
+  elsif user_response == 'decor theme'
+    $client_details[:decor_theme] = user_revision
+  end
+  puts 'Can do!'
 end
 
 def collect_client_details ()
   generate_hash
   print_hash
-
+  puts 'Is that correct? y/n'
+  user_confirm = gets.chomp
+    if user_confirm == "y"
+      puts "Great! Have a good day!"
+    else
+      correct_details
+      print_hash
+      puts "You're all set!"
+    end
 end
 
 collect_client_details
+
+
