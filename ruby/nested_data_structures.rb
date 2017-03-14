@@ -17,5 +17,5 @@ puts drinks_menu['Beer'][0][0]
 puts drinks_menu['Water'][0]
 # Should print 'Still'
 
-print drinks_menu = drinks_menu['Wine']['White']
+print drinks_menu['Wine']['White']
 # Should print ['Chablis', 'Gewurztraminer', 'Riesling']
