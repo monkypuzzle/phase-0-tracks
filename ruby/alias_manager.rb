@@ -8,8 +8,6 @@
 #   - Call create_alias on name
 #   - Output alias
 
-
-
 def letter_increment (name)
   vowels = 'aeiou'.split('')
   consonants = 'bcdfghjklmnpqrstvwxyz'.split('')
@@ -27,7 +25,7 @@ def letter_increment (name)
       char = consonants[(consonants.index(char) + 1)]
     end
   end
-  print letter_incremented_name.join('').split(' ').map!{|word|word.capitalize}.join(' ')
+  letter_incremented_name.join('').split(' ').map!{|word|word.capitalize}.join(' ')
 end
 
 def name_swap (name)
@@ -43,20 +41,16 @@ def name_swap (name)
   new_name.join(' ')
 end
 
-# def create_alias ()
-#   agent_alias = ''
-#   puts 'What\'s your name, agent?'
-#   agent_name = gets.chomp
-#   agent_alias = name_swap(agent_name)
-#   agent_alias = letter_increment(agent_name)
-#   puts "Alright, #{agent_name}! You are no longer #{agent_name}. You are now: #{agent_alias}!"
-# end
+def create_alias ()
+  agent_alias = ''
+  puts 'What\'s your name, agent?'
+  agent_name = gets.chomp
+  agent_alias = name_swap(agent_name)
+  agent_alias = letter_increment(agent_alias)
+  puts "Alright! Your name is no longer #{agent_name}! I hereby dub thee: #{agent_alias}!"
+end
 
-# puts letter_increment('Richard Branson') 
-
-puts name_swap('Richard Branson')
-
-# create_alias
+create_alias
 
 
 
