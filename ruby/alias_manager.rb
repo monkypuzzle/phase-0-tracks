@@ -50,7 +50,18 @@ def create_alias ()
   puts "Alright! Your name is no longer #{agent_name}! I hereby dub thee: #{agent_alias}!"
 end
 
-create_alias
+def user_interface ()
+  puts 'Let\'s get started... Are you ready for a name?'
+  loop do
+    user_response = gets.chomp
+    break if user_response == 'quit'
+    create_alias
+    puts 'Do you want to code up another name? (Say \'quit\' if you\'re done!)'
+end
+end
+
+user_interface
+
 
 
 
