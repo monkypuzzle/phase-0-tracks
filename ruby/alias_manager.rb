@@ -47,11 +47,13 @@ def create_alias ()
   agent_name = gets.chomp
   agent_alias = name_swap(agent_name)
   agent_alias = letter_increment(agent_alias)
+  $agent_database["#{agent_name}"] = agent_alias
   puts "Alright! Your name is no longer #{agent_name}! I hereby dub thee: #{agent_alias}!"
 end
 
 def user_interface ()
   puts 'Let\'s get started... Are you ready for a name?'
+  $agent_database = {}
   loop do
     user_response = gets.chomp
     break if user_response == 'quit'
@@ -60,8 +62,16 @@ def user_interface ()
 end
 end
 
+def print_agent_database ()
+  puts 'Printing agent database...'
+  $agent_database.each do |bonafide, pseudonym|
+  puts "#{bonafide} is actually #{pseudonym}!"
+  end
+end
+
 user_interface
 
+print_agent_database
 
 
 
