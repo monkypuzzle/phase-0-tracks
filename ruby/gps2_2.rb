@@ -35,3 +35,17 @@
     # Print item name and quantity in a pretty way
 # output: prettyfied list
 
+
+def create_list(string)
+  grocery_list = {}
+  array = string.split
+  array.each do | item |
+    grocery_list["#{item}"] = 0
+  end
+  grocery_list
+end
+
+def 
+
+puts create_list('carrots cereal icecream')
+
