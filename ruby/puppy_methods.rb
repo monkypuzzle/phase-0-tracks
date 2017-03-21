@@ -5,16 +5,6 @@ class Puppy
     toy
   end
 
-end
-
-
-
-
-  def fetch(toy)
-    puts "I brought back the #{toy}!"
-    toy
-  end
-
   def speak(number_woofs)
     puts 'woof' * number_woofs
   end
@@ -30,3 +20,11 @@ end
   def shake_paw
     puts "*shakes paw*"
   end
+
+end
+
+rover = Puppy.new
+
+p rover.methods
+
+rover.fetch('ball')
