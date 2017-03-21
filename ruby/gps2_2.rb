@@ -44,8 +44,43 @@ def create_list(string)
   end
   grocery_list
 end
+#---------------------------------
+def add_item(list,item,quantity=0)
 
-def 
+  if quantity == nil
+    quantity = 0
+  end
+    list["#{item}"] = quantity
+    list
+end
+#--------------------------------------
+#remove item from list
+def delete_item(list,item)
+  list.delete(item)
+  list
+end
+#-------------------------------
+def update_qty(list,item,quantity)
+  list["#{item}"] = quantity
+  list
+end
 
-puts create_list('carrots cereal icecream')
+def print_list(list)
+  puts "Grocery list"
+  puts ""
 
+  list.each { |item, qty| puts "#{item}      #{qty}"}
+end
+     
+
+grocery_list =create_list('carrots cereal icecream')
+puts grocery_list
+
+puts add_item(grocery_list,"pizza", 3)
+
+puts delete_item(grocery_list,"cereal")
+puts update_qty(grocery_list,"carrots",2)
+
+print_list(grocery_list)
+
+#------------------------------------------
