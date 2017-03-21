@@ -80,5 +80,20 @@ print_list(grocery_list)
 #------------------------------------------
 
 
+# Reflect
+
+# Pseudocode: It's often better to have your pseudocode be more descriptive than less! We probably could've done a better job outlining some of these methods.
+
+# We decided a hash was the best fit for this challenge because we wanted a combinations of string and integer data that were linked. The key/value structure seemed to make the most sense!
+
+# A method will by default return the last evaluated expression.
+
+# You can pass all kinds of things into methods as arguments - arrays, hashes, basic data types... You just need to design your method to manipulate the appropriate data type.
+
+# Well one way to pass information between methods is to use one method as the input for another. The return value will supply the input. In this case we defined a global variable that stored the output of our create_list method, which is another option. We could probably also have used the global $ signifier.
+
+
+
+
 
 
