@@ -1,4 +1,4 @@
-=begin
+
 
 class Puppy
 
@@ -36,7 +36,7 @@ rover.roll_over
 p rover.dog_years(10)
 rover.shake_paw('Bob')
 
-=end
+
 
 cats = []
 
