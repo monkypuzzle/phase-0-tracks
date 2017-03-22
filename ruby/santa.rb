@@ -1,5 +1,8 @@
 class Santa
 
+  attr_reader :ethnicity
+  attr_accessor :gender, :age
+
   def initialize(gender,ethnicity)
     puts "Initializing Santa instance..."
     @gender = gender
@@ -30,18 +33,6 @@ class Santa
     @reindeer_ranking.push(reindeer)
   end
 
-  def gender=(new_gender)
-    @gender = new_gender
-  end
-
-  def age
-    @age
-  end
-
-  def ethnicity
-    @ethnicity
-  end
-
 end
 
 # george = Santa.new
@@ -53,17 +44,14 @@ santas = []
 genders = ["male","female","transgender"]
 ethnicities = ["black", "latino", "south asian", "pacific islander", "white"]
 
-ethnicities.each do | ethnicity |
-  santas << Santa.new(genders.sample, ethnicity)
+100.times do
+  Santa.new(genders.sample, ethnicities.sample)
 end
 
 ObjectSpace.each_object(Santa) do | santa |
-  p santa
-  santa.gender = genders.sample
-  santa.celebrate_birthday
-  santa.get_mad_at("Dasher")
-  santa.age
-  santa.ethnicity
-  p santa
+  santa.age = rand(141)
+  p "This santa is #{santa.ethnicity}"
+  p "This santa is #{santa.age} years old."
+  p "This santa's gender is #{santa.gender}."
 end
 
