@@ -3,17 +3,17 @@ Pseudocode
 
 * Define a class called WordGame
 * Define attributes for 
-* Create an initialize method that takes a guessword for argument, sets @current_guess_count to 0, @guessword to guessword, @max_guess_count to guessword.length, @current_guess_count to 0, @guesses_made to an empty array, and @is_final_guess? to false
+* Create an initialize method that takes a guessword for argument, sets @guessword to guessword, sets @current_guess_count to 0, @max_guess_count to guessword.length + 3, @current_guess_count to 0, @guesses_made to an empty array, and @is_final_guess to false, game_won to false
 * Create a method check_guess that takes a guess and returns revealed_guessword 
   * Increment current_guess_count
-  * IF current_guess count == max_guess_count, set is_final_guess? to true
-  * IF guess == 
+  * IF current_guess count == max_guess_count, set is_final_guess to true
+  * IF @guessword includes guess put "Good guess!"
+    * ELSE, put "Bad guess!"
   * Add guess to guesses_made array
-
 * Create a method revealed_guessword
-  * Iterate through guessword, printing each item if it's included in guesses_made, printing _ otherwise.
-
-* 
+  * Iterate through @guessword, printing each item if it's included in guesses_made, printing _ otherwise.
+* Create a method endgame_message that prints "Congrats!" if game_won is true, "Bad job!" if game_won is false
+* Add driver code to run the game
 
 =end
 
@@ -22,11 +22,11 @@ Pseudocode
 
 class WordGame
 
-  attr_reader :is_final_guess, :guessword, :revealed_guessword, :game_won
+  attr_accessor :is_final_guess, :guessword, :revealed_guessword, :game_won, :current_guess_count, :guesses_made, :max_guess_count
 
   def initialize(guessword)
     @guessword = guessword
-    @max_guess_count = guessword.length + 3
+    @max_guess_count = guessword.length + 2
     @current_guess_count = 0
     @is_final_guess = false
     @guesses_made = []
@@ -34,7 +34,7 @@ class WordGame
   end
 
   def check_guess(guess)
-    if @current_guess_count == @max_guess_count
+    if @current_guess_count + 1 == @max_guess_count
       @is_final_guess = true
     end
 
@@ -64,10 +64,18 @@ class WordGame
       if @guesses_made.include?(letter)
         reveal << letter
       else
-        reveal << ("_")
+        reveal << "_"
       end
     end
     reveal
+  end
+
+  def endgame_message
+    if @game_won == true
+      p "Congrats, User 2! You won!"
+    else
+      p "You lost, User 2!"
+    end
   end
 
 end
@@ -75,10 +83,12 @@ end
 
 
 # Driver code
+# To be commented out for running tests!
 
 puts "User 1! What word would you like choose?"
 user_word = gets.chomp
 new_game = WordGame.new(user_word)
+system "clear"
 puts "Okay, give it over to User 2!"
 
 until new_game.is_final_guess == true || new_game.guessword == new_game.revealed_guessword
@@ -87,8 +97,5 @@ until new_game.is_final_guess == true || new_game.guessword == new_game.revealed
   new_game.check_guess(guess)
 end
 
-if new_game.game_won == true
-  puts "Congrats, User 2! You won!"
-else
-  puts "You lost, User 2!"
-end
+new_game.endgame_message
+

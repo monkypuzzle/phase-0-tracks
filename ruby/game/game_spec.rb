@@ -9,20 +9,24 @@ describe WordGame do
   end
 
   it "sets number of guesses based on guessword length" do
-    expect(wordgame.max_guess_count).to eql (wordgame.guessword.length + 3)
+    expect(wordgame.max_guess_count).to eql ("unicorn".length + 3)
   end
 
   it "doesn't count repeated guesses against user" do
-    
-    expect(wordgame.current_guess_count).to 
+    wordgame.guesses_made << 'c'
+    wordgame.current_guess_count = 1
+    wordgame.check_guess('c')
+    expect(wordgame.current_guess_count).to eql 1
   end
 
-  it "reveals " do
-
+  it "reveals letters in guessword if they are guessed" do
+    wordgame.check_guess('c')
+    expect(wordgame.revealed_guessword).to eql "___c___"
   end
 
   it "prints congratulatory message if game was won" do
-    expect wordgame.game_won
+    wordgame.game_won = true
+    expect(wordgame.endgame_message). to eql "Congrats, User 2! You won!"
   end
 
 end
