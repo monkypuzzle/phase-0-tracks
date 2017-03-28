@@ -70,12 +70,13 @@ function randomArrayOfStrings(int) {
 
 // Release 2 - Generate Random Test Data
 
-console.log(randomArrayOfStrings(4))
+// console.log(randomArrayOfStrings(4))
 
-// var i=0
-
-// while (i<10) {
-//   console.log(Math.floor(Math.random()*10 + 1));
-//   i++;
-// }
+var n = 0
+while (n < 10) {
+  randomArray = randomArrayOfStrings(5);
+  console.log(randomArray);
+  console.log(findLongestPhrase(randomArray));
+  n = n + 1;
+}
 
