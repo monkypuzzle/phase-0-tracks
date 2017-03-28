@@ -35,9 +35,23 @@ function hasLike(obj1, obj2) {
 
 // Release 2 - Generate Random Test Data
 
+function randomArrayOfStrings(int) {
+  var arrayOfStrings = []
+  for (i = 0; i < int ; i++) {
+    var newWord = '';
+    wordLength = (Math.floor(Math.random()*10 + 1))
+    for (j = 0; j < wordLength; j++) {
+      var alphabet = 'abcdefghijklmnopqrstuvxyz';
+      newWord += alphabet.charAt(Math.floor(Math.random()*26));
+    }
+    arrayOfStrings.push(newWord);
+}
+  return arrayOfStrings
+}
 
 
 // Testing
+
 // Release 0 - Find the longest phrase
 
 // if (findLongestPhrase(["long phrase", "longest phrase", "longer phrase"]) == 'longest phrase') {
@@ -51,7 +65,18 @@ function hasLike(obj1, obj2) {
 
 // Release 1 - Find a key-value match
 
-console.log(hasLike({name: "Steven", age: 54}, {name: "Tamir", age: 54}))
-console.log(hasLike({name: "Steven", age: 40}, {name: "Tamir", age: 54}))
+// console.log(hasLike({name: "Steven", age: 54}, {name: "Tamir", age: 54}))
+// console.log(hasLike({name: "Steven", age: 40}, {name: "Tamir", age: 54}))
 
-// Release 2 - 
+// Release 2 - Generate Random Test Data
+
+// console.log(randomArrayOfStrings(4))
+
+var n = 0
+while (n < 10) {
+  randomArray = randomArrayOfStrings(5);
+  console.log(randomArray);
+  console.log(findLongestPhrase(randomArray));
+  n = n + 1;
+}
+
