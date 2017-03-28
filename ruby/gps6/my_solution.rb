@@ -96,3 +96,17 @@ end
 
 #=======================================================================
 # Reflection Section
+=begin
+Hash syntax:
+ The : syntax can only be used with symbols whereas the hash-rocket syntax => can be used with a key that's a string or a symbol.
+Require:
+  Require_relative links a file with a relative path, whereas require takes an absolute path.
+Hash iterators:
+  Some iterators that can be used with hashes are .each_pair, .each_key, and .each_value. They'll be useful in different situations, depending on how what kind of data you want to manipulate.
+Virus effects:
+  Refactoring virus effects made it apparent just how useful instance variables are. Any time you want to use a variable across more than one method, it's probably worth using an instance variable.
+Concepts:
+  The use of 'private' was totally new to me so I'm definitely going to be taking that away. It was also the first time I saw a constant in use - Neal's explanation of their usage really clarified how you might use them.
+=end
+
+
