@@ -27,18 +27,21 @@ private
 
 # Calculates predicted_deaths based on population_density, and prints result.
   def predicted_deaths
+    rate = nil
     # predicted deaths is solely based on population density
     if @population_density >= 200
-      number_of_deaths = (@population * 0.4).floor
+      rate = 0.4
     elsif @population_density >= 150
-      number_of_deaths = (@population * 0.3).floor
+      rate = 0.3
     elsif @population_density >= 100
-      number_of_deaths = (@population * 0.2).floor
+      rate = 0.2
     elsif @population_density >= 50
-      number_of_deaths = (@population * 0.1).floor
+      rate = 0.1
     else
-      number_of_deaths = (@population * 0.05).floor
+      rate = 0.05
     end
+
+    number_of_deaths = (@population * rate).floor
 
     print "#{@state} will lose #{number_of_deaths} people in this outbreak"
 
@@ -51,15 +54,15 @@ private
     speed = 0.0
 
     if @population_density >= 200
-      speed += 0.5
+      speed = 0.5
     elsif @population_density >= 150
-      speed += 1
+      speed = 1
     elsif @population_density >= 100
-      speed += 1.5
+      speed = 1.5
     elsif @population_density >= 50
-      speed += 2
+      speed = 2
     else
-      speed += 2.5
+      speed = 2.5
     end
 
     puts " and will spread across the state in #{speed} months.\n\n"
