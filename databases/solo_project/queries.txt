@@ -1,0 +1,105 @@
+8.3 Release 2
+
+Question 1:
+
+select * from species;
+1|Oak Titmouse|Baeolophus|inornatus|true|1
+2|Common Raven|Corvus|corax|true|1
+3|Red-tailed Hawk|Buteo|jamaicensis|false|2
+4|Great Blue Heron|Ardea|herodias|false|3
+5|Violet-green Swallow|Tachycineta|thalassinus|true|1
+6|Anna's Hummingbird|Calypte|ana|false|4
+
+
+Question 2:
+
+update species set species="thalassina" where common_name="Violet-green Swallow";
+select * from species where common_name="Violet-green Swallow";
+5|Violet-green Swallow|Tachycineta|thalassina|true|1
+
+Question 3:
+
+select * from species, orders where species.order_id = orders.id;
+1|Oak Titmouse|Baeolophus|inornatus|true|1|1|Passeriformes
+2|Common Raven|Corvus|corax|true|1|1|Passeriformes
+3|Red-tailed Hawk|Buteo|jamaicensis|false|2|2|Accipitriformes
+4|Great Blue Heron|Ardea|herodias|false|3|3|Pelecaniformes
+5|Violet-green Swallow|Tachycineta|thalassinus|true|1|1|Passeriformes
+6|Anna's Hummingbird|Calypte|ana|false|4|4|Apodiformes
+
+
+Question 4:
+select species.common_name, orders.orders from species join orders on species.order_id = orders.id;
+Oak Titmouse|Passeriformes
+Common Raven|Passeriformes
+Red-tailed Hawk|Accipitriformes
+Great Blue Heron|Pelecaniformes
+Violet-green Swallow|Passeriformes
+Anna's Hummingbird|Apodiformes
+
+Question 5:
+delete from species where common_name="Violet-green Swallow";
+select * from species;
+1|Oak Titmouse|Baeolophus|inornatus|true|1
+2|Common Raven|Corvus|corax|true|1
+3|Red-tailed Hawk|Buteo|jamaicensis|false|2
+4|Great Blue Heron|Ardea|herodias|false|3
+6|Anna's Hummingbird|Calypte|ana|false|4
+
+
+8.3 Release 2
+
+Question 2:
+
+(Inner) Join
+
+select species.common_name, orders.orders from species join orders on species.order_id = orders.id;
+Oak Titmouse|Passeriformes
+Common Raven|Passeriformes
+Red-tailed Hawk|Accipitriformes
+Great Blue Heron|Pelecaniformes
+Anna's Hummingbird|Apodiformes
+
+Cross Join
+
+select species.common_name, orders.orders from species cross join orders;
+Oak Titmouse|Passeriformes
+Oak Titmouse|Accipitriformes
+Oak Titmouse|Pelecaniformes
+Oak Titmouse|Apodiformes
+Common Raven|Passeriformes
+Common Raven|Accipitriformes
+Common Raven|Pelecaniformes
+Common Raven|Apodiformes
+Red-tailed Hawk|Passeriformes
+Red-tailed Hawk|Accipitriformes
+Red-tailed Hawk|Pelecaniformes
+Red-tailed Hawk|Apodiformes
+Great Blue Heron|Passeriformes
+Great Blue Heron|Accipitriformes
+Great Blue Heron|Pelecaniformes
+Great Blue Heron|Apodiformes
+Anna's Hummingbird|Passeriformes
+Anna's Hummingbird|Accipitriformes
+Anna's Hummingbird|Pelecaniformes
+Anna's Hummingbird|Apodiformes
+
+Natural Join
+
+select species.common_name, orders.orders from species natural join orders;
+Oak Titmouse|Passeriformes
+Common Raven|Accipitriformes
+Red-tailed Hawk|Pelecaniformes
+Great Blue Heron|Apodiformes
+
+Left Outer Join
+
+select species.common_name, orders.orders from species left outer join orders on species.order_id = orders.id;
+Oak Titmouse|Passeriformes
+Common Raven|Passeriformes
+Red-tailed Hawk|Accipitriformes
+Great Blue Heron|Pelecaniformes
+Anna's Hummingbird|Apodiformes
+
+
+
