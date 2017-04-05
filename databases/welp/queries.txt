@@ -1,0 +1,51 @@
+Question 2
+
+select
+*
+from
+reviews
+join users on users.id = reviews.user_id
+join businesses on businesses.id = reviews.business_id;
+
+id          stars       comment        business_id  user_id     id          firstname   lastname    id          name
+----------  ----------  -------------  -----------  ----------  ----------  ----------  ----------  ----------  ----------------------------
+1           5           Killer venue!  1            1           1           Bradford    Pitt        1           Grundy Hollow Wedding Chapel
+2           1           Worst club ev  3            5           5           Holly       Berry       3           The Beagle Nightclub
+3           3           Forgettable s  6            4           4           Steven      Wonder      6           Sushi World
+4           2           Not the best   7            7           7           Denzel      George      7           JoeBob's Sportz Barn
+
+
+Question 3
+
+select
+users.firstname,
+users.lastname,
+businesses.name,
+reviews.stars
+from
+reviews
+join users on users.id = reviews.user_id
+join businesses on businesses.id = reviews.business_id;
+
+firstname   lastname    name                          stars
+----------  ----------  ----------------------------  ----------
+Bradford    Pitt        Grundy Hollow Wedding Chapel  5
+Holly       Berry       The Beagle Nightclub          1
+Steven      Wonder      Sushi World                   3
+Denzel      George      JoeBob's Sportz Barn          2
+
+
+Question 4
+
+select * from businesses join reviews on businesses.id=reviews.business_id and businesses.id=1 join users on reviews.user_id=users.id;
+
+id          name                          id          stars       comment        business_id  user_id     id          firstname   lastname
+----------  ----------------------------  ----------  ----------  -------------  -----------  ----------  ----------  ----------  ----------
+1           Grundy Hollow Wedding Chapel  1           5           Killer venue!  1            1           1           Bradford    Pitt
+
+select * from businesses join reviews on businesses.id=reviews.business_id and businesses.id=7 join users on reviews.user_id=users.id;
+
+id          name                  id          stars       comment                      business_id  user_id     id          firstname   lastname
+----------  --------------------  ----------  ----------  ---------------------------  -----------  ----------  ----------  ----------  ----------
+7           JoeBob's Sportz Barn  4           2           Not the best sporting goods  7            7           7           Denzel      George
+
