@@ -1,0 +1,41 @@
+body {
+  font-family: 'Georgia', serif;
+}
+
+.first-header {
+  color: red;
+  font-size: 3em;
+  font-weight: bolder;
+  text-transform: uppercase;
+}
+
+.second-header {
+  color: orangered;
+  font-size: 2em;
+  text-transform: lowercase;
+}
+
+.paragraphs {
+  background-color: coral;
+  padding: 20px;
+  margin-bottom: 1em;
+}
+
+.paragraph {
+  background-color: cornflowerblue;
+}
+
+#content-box {
+  border: dashed red 3px;
+  width: 80%;
+  height: 500px;
+  margin: 0 auto;
+}
+
+#content-box button {
+  display: block;
+  background-color: green;
+  margin: 0 auto;
+  width: 150px;
+  height: 100px;
+}
