@@ -8,8 +8,21 @@ db.results_as_hash = true
 # write a basic GET route
 # add a query parameter
 # GET /
-get '/:name/:age' do
-  "#{params[:name]} is #{params[:age]} years old."
+get '/' do
+  key = params[:key]
+  value = params[:value]
+  students = db.execute("SELECT * FROM students")
+  response = ""
+  if key && value
+    students.each do |student|
+      if student[key] == value
+        response << "#{student['name']}<br>"
+      end
+    end
+  else
+    response = "Add a key and a value as a query parameter to display all students with that key!"
+  end
+  response
 end
 
 # write a GET route with
@@ -64,5 +77,13 @@ get '/good_job' do
   end
 end
 
-# 
+# write a GET route that adds two numbers provided as route parameters
+
+get '/sum/:addend1/:addend2' do
+  addend1 = params[:addend1].to_i
+  addend2 = params[:addend2].to_i
+  sum = addend1 + addend2
+  "#{sum}"
+end
+
 
