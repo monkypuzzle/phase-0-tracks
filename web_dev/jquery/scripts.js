@@ -23,7 +23,7 @@ $(document).ready(function(){
   var divHtml = '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus debitis, illo, incidunt eligendi suscipit nesciunt dolorum non, quidem deleniti blanditiis delectus quae dolor sed cumque. Fuga animi omnis eligendi odit.</p>'
 
   $('li').filter(':nth-child(2)').on('click', function(){
-    $('#div-bottom').toggleHtml(divHtml)
+    $('#div-bottom').html(divHtml)
   });
 
 });
