@@ -1,0 +1,33 @@
+* {
+  font-family: Georgia, serif;
+  font-size: 1.2em;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  margin: 0 10px;
+  border: solid black 2px;
+  background-color: yellow;
+  height: 100px;
+  width: 200px;
+  display: inline-block;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+p {
+  background-color: mediumseagreen;
+}
+
+#div-bottom {
+  margin: 0 auto;
+  background-color: lightcoral;
+  height: 400px;
+  width: 80%;
+}
